@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Ejercicio 13 - DOM básico y atributos XHTML</title>
+<script type="fa517dd8c235feb0e3039748-text/javascript">
+    var elementoAnadido = 1;
+function anade() {
+    var lista = document.getElementById("lista");
+    var fila = document.createElement("li");
+    var contenido = document.createTextNode("Añadimos la fila "+elementoAnadido++);
+    fila.appendChild(contenido);
+    lista.appendChild(fila);
+}
+</script>
+</head>
+<body>
+<ul id="lista">
+<li>Lorem ipsum dolor sit amet</li>
+<li>Consectetuer adipiscing elit</li>
+<li>Sed mattis enim vitae orci</li>
+<li>Phasellus libero</li>
+<li>Maecenas nisl arcu</li>
+</ul>
+<input type="button" value="Añadir elemento" onclick="if (!window.__cfRLUnblockHandlers) return false; anade();" data-cf-modified-fa517dd8c235feb0e3039748-="">
+<script src="https://ajax.cloudflare.com/cdn-cgi/scripts/7089c43e/cloudflare-static/rocket-loader.min.js" data-cf-settings="fa517dd8c235feb0e3039748-|49" defer=""></script></body>
+</html>

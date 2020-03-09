@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <input type="button" value="Pinchame y verás" onclick="alert('Gracias por pinchar');" />
+    <div id="contenidos" style="width:150px; height:60px; border:thin solid silver" onmouseover="this.style.borderColor='black';this.style.backgroundColor='green'" onmouseout="this.style.borderColor='silver';this.style.backgroundColor='gray'">
+        Sección de contenidos...
+    </div>
+<div name="pinchable" id="parrafo1" onclick="muestraMensaje(this)">Mensaje 1</div>
+<div name="pinchable" id="parrafo2" onclick="muestraMensaje(this)">Mensaje 2</div>
+    <div id="muestra"></div>
+    <script>
+        function muestraMensaje(nombre){
+            let mensaje = "Has pinchado sobre el elemento "+nombre.getAttribute("id");
+            //let mensaje = "Has pinchado sobre el elemento";
+            document.getElementById("muestra").textContent = mensaje;
+        }
+    </script>
+    </body>
+</html>

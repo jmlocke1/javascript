@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+    function resalta(elEvento) {
+        var evento = elEvento || window.event;
+        switch(evento.type) {
+            case 'mouseover':
+            this.style.borderColor = 'black';
+            break;
+            case 'mouseout':
+            this.style.borderColor = 'silver';
+            break;
+        }
+    }
+    function muestraInformacion(elEvento) {
+        var evento = window.event || elEvento;
+
+        var mensaje = "Tipo de evento: " + evento.type + "<br>" +
+                        "Propiedad keyCode: " + evento.keyCode + "<br>" +
+                        "Propiedad charCode: " + evento.charCode + "<br>" +
+                        "Carácter pulsado: " + String.fromCharCode(evento.charCode);
+
+        info.innerHTML += "<br>--------------------------------------<br>" + mensaje
+    }
+
+    window.onload = function() {
+        document.getElementById("seccion").onmouseover = resalta;
+        document.getElementById("seccion").onmouseout = resalta;
+        document.onkeyup = muestraInformacion;
+        document.onkeypress = muestraInformacion;
+        document.onkeydown = muestraInformacion;
+    }
+
+    </script>
+</head>
+<body>
+    <div id="seccion" style="width:150px; height:60px; border:thin solid silver">
+        Sección de contenidos...
+    </div>
+    <div id="info"></div>
+</body>
+</html>

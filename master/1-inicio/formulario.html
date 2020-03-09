@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio DOM, Eventos y funciones</title>
+    <script type="text/javascript" src="js/32-ejercicio-dom.js"></script>
+    <style>
+        .box{
+            width: 200px;
+            height: 250px;
+            float: left;
+            margin: 20px;
+        }
+        .dashed {
+            border: 3px dashed black;
+            padding: 15px;
+        }
+        .error {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <h1>Ejercicio DOM, Eventos y funciones - Curso JS Victorrobles.es</h1>
+    <!--
+        1. Formulario campos: Nombre, Apellidos y edad
+        2. Botón de enviar el formulario: eventos submit
+        3. Mostrar datos por pantalla.
+        4. Validación del formulario
+    -->
+    <div class="box">
+        <form action="#" method="POST" name="formulario" id="formulario" onsubmit="return false">
+            <label>Introduce tu nombre: <br><input type="text" name="nombre" id="nombre"></label><br>
+            <div id="error_nombre" class="error"></div>
+            <label>Apellidos: <br><input type="text" name="apellidos" id="apellidos"></label><br>
+            <label>Edad: <br><input type="number" name="edad" id="edad"></label><br>
+            <input type="submit" value="Enviar" id="submit"><br>
+        </form>
+    </div>
+    <div class="box dashed" id="respuesta"></div>
+</body>
+</html>
