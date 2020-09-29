@@ -1,0 +1,2 @@
+Esto es un texto de prueba para cargar mediante el método load de jQuery.
+Hola, soy Jorge

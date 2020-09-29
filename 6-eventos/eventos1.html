@@ -16,7 +16,7 @@
     <div id="muestra"></div>
     <script>
         function muestraMensaje(nombre){
-            let mensaje = "Has pinchado sobre el elemento "+nombre.getAttribute("id");
+            let mensaje = "Has pinchado sobre el elemento "+nombre.getAttribute('name') + " "+nombre.getAttribute("id");
             //let mensaje = "Has pinchado sobre el elemento";
             document.getElementById("muestra").textContent = mensaje;
         }

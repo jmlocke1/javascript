@@ -1,0 +1,24 @@
+body{
+    background: url(../img/hojas.jpg);
+    background-attachment: fixed;
+}
+
+#logo{
+    background: #235e3d;
+}
+
+#menu ul li:hover{
+    background: #235e3d;
+}
+
+.button-more{
+    background: #235E3d;
+}
+
+#acordeon .ui-accordion-header{
+    background-color: rgb(188, 224, 204);
+}
+
+#acordeon .ui-accordion-header-active{
+    background-color: #235E3d;
+}

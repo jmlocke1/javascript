@@ -12,32 +12,77 @@
     <p>In this example we demonstrate a simple class definition and how to use it.</p>
     
     <p id="demo"></p>
-    
+    <p id="conductor"></p>
     <script>
-    class Car {
-        carname;
-      constructor(brand) {
-        this.carname = brand;
-      }
+        class Car {
+            carname;
+            constructor(brand) {
+                this.carname = brand;
+            }
 
-      getCarName(){
-      return this.carname;
-      }
-    }
-    let MyObjectLiteral = {
-        suma : (valor_a, valor_b) => {
-            let result = valor_a + valor_b;
-            return result;
-        },
-        resta: (valor_a, valor_b) => {
-            let result = valor_a - valor_b;
-            return result;
+            getCarName(){
+                return this.carname;
+            }
         }
-    }
-    mycar = new Car("Seat");
-    var nombre = mycar.getCarName();
-    var suma = MyObjectLiteral.suma(2,2);
-    document.getElementById("demo").innerHTML = nombre+" y tiene "+ suma+" ruedas. El conductor tiene "+MyObjectLiteral.resta(15,2)+" puntos en el carnet";
+        class Conductor{
+            name;
+            points;
+            coche;
+            constructor(name, coche){
+                this.name = name;
+                this.points = 15;
+                this.coche = coche;
+            }
+            quitaPuntos(points){
+                this.points -= points;
+            }
+            getName(){
+                return this.name;
+            }
+            getPoints(){
+                return this.points;
+            }
+            setCar(coche){
+                this.coche = coche;
+            }
+            getCar(){
+                if(this.coche != null){
+                    return this.coche;
+                }else{
+                    return false;
+                }
+                
+            }
+        }
+        let MyObjectLiteral = {
+            suma : (valor_a, valor_b) => {
+                let result = valor_a + valor_b;
+                return result;
+            },
+            resta: (valor_a, valor_b) => {
+                let result = valor_a - valor_b;
+                return result;
+            }
+        }
+        function mensaje(conductor){
+            let coche = conductor.getCar();
+            let mensaje = "";
+            if(coche){
+                mensaje = conductor.getName()+" tiene un coche de la marca "+ coche.getCarName()+", el cual tiene "+ suma+" ruedas. El conductor tiene "+conductor.getPoints()+" puntos en el carnet";
+            }else{
+                mensaje = conductor.getName() + " no tiene coche. Le quedan "+ conductor.getPoints()+" puntos en el carnet";
+            }
+            return mensaje;
+        }
+        const mycar = new Car("Seat");
+        var nombre = mycar.getCarName();
+        var suma = MyObjectLiteral.suma(2,2);
+        document.getElementById("demo").innerHTML = nombre+" y tiene "+ suma+" ruedas. El conductor tiene "+MyObjectLiteral.resta(15,2)+" puntos en el carnet";
+        const cond1 = new Conductor('Juan Manuel', new Car('Wolswagen Golf'));
+        const cond2 = new Conductor('Paco Porras');
+        cond1.quitaPuntos(4);
+        cond2.quitaPuntos(2);
+        document.getElementById("conductor").innerHTML = mensaje(cond2);
     </script> 
 </body>
 </html>

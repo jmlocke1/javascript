@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arrow</title>
+    <script>
+        /* Antes
+        var x = function(a){
+            return a;
+        }
+        console.log(x("Hola"));
+        */
+        // Fat arrow con un parámetro
+        var x = (a, b) => a + " " + b;
+        console.log(x("Hola", "Mundo"));
+        // Sin parámetros, se puede usar paréntesis o guión bajo: () o _
+        var y = _ => "Hola Mundo sin parámetros";
+        console.log(y());
+        function sumame(numero1, numero2, sumaYmuestra, sumaPorDos){
+            let sumar = numero1 + numero2;
+            sumaYmuestra(sumar);
+            sumaPorDos(sumar);
+            return sumar;
+        }
+        sumame(4,7, dato =>   console.log("La suma es:", dato), dato => console.log("La suma por dos es:", dato*2));
+        // Llamar a la función desde otra función
+        setTimeout(() => alert("Hola desde otra función"), 1000);
+        var xvarias = () => {
+            a= "Hola";
+            b = "caracola";
+            alert(a+" "+b);
+        };
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

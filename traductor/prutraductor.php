@@ -7,13 +7,13 @@ require_once 'Traductor.php';
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>Ejercicio 11 - DOM básico</title>
 	<script type="text/javascript">
-	var etiqueta = {HOLA:"Hola Mundo $1 $2", ADIOS:"Adiós amigos", ESPERO:"Fumando espero", SALUDO: "Hola, $1 $2"};
+	var etiqueta = {HOLA:"Hola Mundo $1 $2", ADIOS:"Adiós amigos, hasta siempre", ESPERO:"Fumando espero", SALUDO: "Hola, $1 $2"};
 	function traduce(){
 		var etiquetasATraducir = document.getElementsByName("traduccion");
 		etiquetasATraducir.forEach(traduceElemento);
 	}
 	function traduceElemento(elemento){
-		var etiquetaATraducir = aplicaParam(elemento)
+		var etiquetaATraducir = aplicaParam(elemento);
 		elemento.textContent = etiquetaATraducir;
 	}
 	function aplicaParam(elemento){
@@ -22,8 +22,7 @@ require_once 'Traductor.php';
 		var texto = etiqueta[param[0].trim()];
 		for(var i = 1; i < param.length; i++){
 			texto = texto.replace("$"+i, param[i]);
-		}
-		
+		}		
 		return texto;
 	}
 	window.onload = function() {

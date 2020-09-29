@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proyecto con JavaScript</title>
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    
+    
+    <!-- Estilos CSS -->
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+    <link id="theme" rel="stylesheet" type="text/css" href="css/green.css">
+    <!-- Javascript de la página -->
+    <script type="text/javascript" src="js/main.js"></script>
+    <script type="text/javascript" src="js/reloj.js"></script>
+    <!-- MomentJS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment-with-locales.min.js"></script>
+
+    
+</head>
+<body>
+    <script>
+        moment.locale('es');
+    </script>
+    <div id="selector-theme">
+        <div id="to-green" title="Tema verde"></div>
+        <div id="to-red" title="Tema rojo"></div>
+        <div id="to-blue" title="Tema azul"></div>
+    </div>
+<section id="global">
+    <!-- Cabecera -->
+    <header>
+        <div id="logo">
+            <h1>Proyecto JS</h1>
+        </div>
+        <div class="clearfix"></div>
+        <nav id="menu">
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="#">Calculadora</a></li>
+                <li><a href="#">Reloj</a></li>
+                <li><a href="about.html">Sobre mí</a></li>
+                <li><a href="contact.html">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    
+    <!-- Contenido -->
+    <section id="content">
+        <div id="box" class="post">
+            <!-- Cargar reloj -->
+            <div id="reloj" class="reloj"></div>
+            <div id="reloj2" class="reloj"></div>
+            <div id="reloj3" class="reloj"></div>
+        </div>
+        <aside id="sidebar">
+            <div id="about">
+                <h4><span>¿Quién soy?</span></h4>
+                <img src="img/caracol.jpg">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Id temporibus expedita impedit. Illo qui harum iusto repellendus aliquam ducimus numquam molestiae perspiciatis voluptatibus ratione nemo accusantium, iste sequi nisi voluptatum.</p>
+            </div>
+            <div id="login">
+                <h4><span>Identifícate</span></h4>
+                <form>
+                    <label for="name">Nombre</label>
+                    <input type="text" name="name" id="form_name">
+                    <label for="email">Correo</label>
+                    <input type="text" name="email">
+                    <label for="password">Contraseña</label>
+                    <input type="password" name="password">
+                    <input type="submit" value="Entrar">
+                </form>
+            </div>
+        </aside>
+        <div class="clearfix"></div>
+    </section>
+</section>
+<footer>
+    Master de JavaScript de Víctor Robles &copy;
+    <a href="#" class="subir">Ir arriba</a>
+    
+    
+</footer>
+
+</body>
+</html>

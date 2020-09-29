@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript" src="/lib/jquery-3.4.1.js"></script>
+    <link rel="stylesheet" href="/lib/jquery-ui-1.12.1/jquery-ui.structure.css" >
+    <link rel="stylesheet" href="/lib/jquery-ui-1.12.1/jquery-ui.theme.css" >
+    <script type="text/javascript" src="/lib/jquery-ui-1.12.1/jquery-ui.js"></script>
+    <script type="text/javascript" src="js/06-interface.js"></script>
+    <style>
+        .elemento{
+            width: 300px;
+            height: 200px;
+            border: 4px solid black;
+            background: lightblue;
+            margin: 20px;
+            float: left;
+        }
+        .lista-seleccionable li{
+            width: 80%;
+            padding: 20px;
+            border: 1px solid #ccc;
+            list-style: none;
+            cursor:pointer;
+        }
+        ul .ui-selecting{ background: green;}
+        ul .ui-selected{background: blue;}
+
+        #elemento-movido{
+            width: 100px;
+            height: 100px;
+            border: 4px solid red;
+        }
+        #area{
+            width: 300px;
+            height: 300px;
+            border: 4px solid green;
+        }
+        .caja-efectos{
+            background: pink;
+            float: none;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h2>Aprendiendo jQuery con Víctor Robles WEB - jQuery UI</h2>
+    <h3>Tooltip</h3>
+    <div id="enlaces">
+        <a href="#" title="Acceder a la sección de mis datos de esta web">Mis datos</a>
+        <a href="#" title="Loguéate en esta web">Identificarse</a>
+        <a href="#" title="Ver todos mis amigos">Amigos</a>
+    </div>
+    <hr>
+    <h3>Cuadros de diálogo</h3>
+    <button id="lanzar-popup">Lánzame</button>
+    <div id="popup" title="¿Estás seguro?" style="display:none">
+        <p>Si continúas en el curso aprenderás mucho de javascript inevitablemente</p>
+    </div>
+    <hr>
+
+    <h3>Calendario</h3>
+    <input type="text" name="" id="calendario">
+    <h3>Chinese Traditional (&#32321;&#39636;&#20013;&#25991;) , (繁體中文)</h3>
+    <hr>
+
+    <h3>Pestañas</h3>
+    <div id="pestanas">
+        <ul>
+            <li><a href="#tabs-1">Pestaña 1</a></li>
+            <li><a href="#tabs-2">Pestaña 2</a></li>
+            <li><a href="#tabs-3">Pestaña 3</a></li>
+            <li><a href="#tabs-4">Pestaña 4</a></li>
+            <li><a href="#tabs-5">Pestaña 5</a></li>
+        </ul>
+        <div id="tabs-1">Hola, soy la pestaña número 1</div>
+        <div id="tabs-2">Hola, soy la pestaña número 2</div>
+        <div id="tabs-3">Hola, soy la pestaña número 3</div>
+        <div id="tabs-4">Hola, soy la pestaña número 4</div>
+        <div id="tabs-5">Hola, soy la pestaña número 5</div>
+    </div>
+    
+    <hr>
+
+    <button id="mostrar">Mostrar</button>
+    <div class="caja-efectos elemento"></div>
+    <div id="elemento-movido"></div>
+    <br>
+    <div id="area"></div>
+
+    <ul class="lista-seleccionable">
+        <li>GTA 5</li>
+        <li>Need for Speed</li>
+        <li>Crash Bandicoot</li>
+        <li>Super Mario</li>
+        <li>Galaxian</li>
+    </ul>
+    <div class="elemento">Hola, soy un elemento de la red 1</div>
+    <div class="elemento">Hola, soy un elemento de la red 2</div>
+    <div class="elemento">Hola, soy un elemento de la red 3</div>
+
+</body>
+</html>

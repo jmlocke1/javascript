@@ -1,0 +1,1 @@
+Soy el texto en la pestaña 2, cargado desde el servidor
