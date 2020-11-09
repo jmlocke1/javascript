@@ -4,7 +4,7 @@ mb_internal_encoding ('UTF-8');
 
 /* CREAMOS LA CONEXION A LA BASE DE DATOS, O BIEN LA IMPORTAMOS 
 DESDE UN ARCHIVO EXTERNO DE CONFIGURACION. */
-$conexion = new PDO('mysql:host=localhost;dbname=datatables;charset=UTF8', 'root', 'root');
+$conexion = new PDO('mysql:host=localhost;dbname=datatables7;charset=UTF8', 'root', 'root');
 $conexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 /* RECUPERAMOS TODOS LOS PARAMETROS DE $_GET. LOS QUE NO APAREZCAN EN LA CONSULTA 
@@ -14,7 +14,9 @@ $datosDeLlamada = $_GET;
 
 /* SE INDICA(N) LA(S) TABLA(S) QUE SE VA(N) A USAR EN LA CONSULTA. */
 $tablasDeBBDD = array(
-        'personal'
+    'personal',
+    'ciudades',
+    'cargos'
 );
 
 /* SE DEFINE LA LISTA DE COLUMNAS QUE SE DEVOLVERON PARA SER MOSTRADAS EN 
@@ -24,8 +26,8 @@ LA(S) TABLA(S) AFECTADA(S) POR LA CONSULTA. */
 $columnasParaRetorno = array(
         $tablasDeBBDD[0].'.nombre', 
         $tablasDeBBDD[0].'.apellido', 
-        $tablasDeBBDD[0].'.cargo',
-        $tablasDeBBDD[0].'.ciudad',
+        $tablasDeBBDD[2].'.cargo',
+        $tablasDeBBDD[1].'.ciudad',
         $tablasDeBBDD[0].'.fecha_de_ingreso',
         $tablasDeBBDD[0].'.salario_bruto_anual'
 );
@@ -48,11 +50,26 @@ if (!empty($reglasDeFiltradoDeUsuario)){
 } else {
         $reglasDeFiltradoDeUsuario = '';
 }
-
-/* SE COMPONE TODA LA REGLA DE FILTRADO. 
-EN ESTE EJEMPLO ES MUY SIMPLE, PORQUE SÓLO USAMOS LA CAJA DE BUSQUEDA, 
-PERO MÁS ADELANTE VEREMOS OTROS USOS. */
-$reglasDeFiltrado = $reglasDeFiltradoDeUsuario;
+/* PREPARAMOS LAS REGLAS DE FILTRADO DE RELACIONES ENTRE TABLAS. 
+ESTAS SE PROGRAMAN AQUI A MANO, PORQUE PUEDEN EXISTIR O NO, 
+DEPENDIENDO DE QUE SE USE UNA TABLA O MAS DE UNA. */
+$reglasDeFiltradoDeRelaciones = '';
+$reglasDeFiltradoDeRelaciones .= " (".$tablasDeBBDD[1].".id = ".$tablasDeBBDD[0].".id_ciudad ";
+$reglasDeFiltradoDeRelaciones .= "AND ".$tablasDeBBDD[2].".id = ".$tablasDeBBDD[0].".id_cargo) ";
+/* SE COMPONE TODA LA REGLA DE FILTRADO. EN ESTE CASO INCLUYE LAS 
+CLAÚSULAS DE BÚSQUEDA, Y LAS RELACIONES ENTRE TABLAS. 
+SIGUE SIENDO UN EJEMPLO SIMPLE, PERO MÁS ELABORADO QUE EL ANTERIOR. 
+MÁS ADELANTE VEREMOS OTROS USOS. 
+LO IMPORTANTE AQUI ES QUE, ADEMÁS DE LAS CLAUSULAS DE BÚSQUEDA 
+(VARIABLE $reglasDeFiltradoDeUsuario, QUE PUEDEN EXISTIR O NO) 
+TAMBIÉN HAY UNA CLAÚSULA DE RELACIONES ENTRE LAS TABLAS. SI HAY MÁS 
+DE UNA TABLA SIEMPRE HABRÁ UNA CLAÚSULA DE RELACIONES ($reglasDeFiltradoDeRelaciones). 
+LAS IMPLEMENTAMOS COMO UNA MATRIZ PARA PODER COMPROBAR LAS QUE EXISTEN Y LAS QUE NO, 
+Y LUEGO LAS UNIMOS CON EL OPERADOR AND, SI HAY MÁS DE UNA CLAÚSULA DE FILTRADO. */
+$reglasDeFiltrado = array();
+if ($reglasDeFiltradoDeUsuario > '') $reglasDeFiltrado[] = $reglasDeFiltradoDeUsuario;
+if ($reglasDeFiltradoDeRelaciones > '') $reglasDeFiltrado[] = $reglasDeFiltradoDeRelaciones;
+$reglasDeFiltrado = implode(" AND ", $reglasDeFiltrado);
 //////////////////////////////////////////// FIN DE REGLAS DE FILTRADO ///////////////////////////
 
 /////////////////////////// REGLAS DE ORDENACION ////////////////////////
@@ -60,9 +77,9 @@ $reglasDeFiltrado = $reglasDeFiltradoDeUsuario;
 $reglasDeOrdenacion = array ();
 if (isset($datosDeLlamada['order'][0]['column'] )) {
     $columnasDeOrdenacion = count($datosDeLlamada['order']);
-    for($i = 0; $i < $columnasDeOrdenacion; $i ++) {
+    for($i = 0; $i < $columnasDeOrdenacion; $i++) {
         if ($datosDeLlamada['columns'][$i]['orderable'] == 'true') {
-                $reglasDeOrdenacion [] = $columnasParaRetorno[intval($datosDeLlamada['order'][$i]['column'])].($datosDeLlamada['order'][$i]['dir'] === 'asc'?' asc':' desc');
+            $reglasDeOrdenacion [] = $columnasParaRetorno[intval($datosDeLlamada['order'][$i]['column'])].($datosDeLlamada['order'][$i]['dir'] === 'asc'?' asc':' desc');
         }
     }
 }
