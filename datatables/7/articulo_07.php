@@ -47,10 +47,10 @@
                         <input type="text" class="form-control input-sm" id="valor_a_comparar" placeholder="Introduce texto aquí">
                     </div>
                     <div class="col-sm-2">
-                        <input type="button" class="btn btn-primary btn-sm" id="boton_buscar" value="Buscar" disabled>
+                        <input type="button" class="btn btn-primary btn-sm" id="boton_buscar" value="Buscar" disabled="true">
                     </div>
                     <div class="col-sm-2">
-                        <input type="button" class="btn btn-warning btn-sm" id="boton_resetear" value="Resetear búsqueda" disabled>
+                        <input type="button" class="btn btn-warning btn-sm" id="boton_resetear" value="Resetear búsqueda" disabled="true">
                     </div>
                 </div>
             </header>
@@ -163,7 +163,7 @@
             var lang = window.navigator.language || window.navigator.browserLanguage;
             $('#idioma').text("El idioma del navegador es: "+lang);
             /* Comprobamos si se activa o desactiva el botón de búsqueda personalizada y el de reseteo. */
-            var texto = 'Textó para compròbar';
+            var texto = 'Textó para compròbares';
             var valoracomparar = $('#valor_a_comparar');
             valoracomparar.prop('value', texto);
             valoracomparar.on('keyup', function () {
@@ -173,7 +173,7 @@
                 $('#mensajes').text('Tecla pulsada');
             });
             valoracomparar.on('keyup keypress change', function () {
-                $('#boton_buscar').prop('disabled', ($('#valor_a_comparar').prop('value') === texto));
+                $('#boton_buscar').prop('disabled', (valoracomparar.prop('value') === texto));
                 $('#boton_resetear').prop('disabled', ($('#id_campo').prop('value') == "0" && $('#id_operacion').prop('value') == "0" && $('#valor_a_comparar').prop('value') === texto));
             });
             $('#id_campo, #id_operacion').on('change', function () {
