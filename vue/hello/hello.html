@@ -34,6 +34,7 @@
 				{{key}}: {{todo}}
 			</li>
 		</ol>
+		<p v-bind:title='traduce("en los atributos")'>La traducción es: {{traduce("mundo")}}</p>
 	</div>
 	<div id="app-5">
 		<p>{{ message }}</p>
@@ -44,6 +45,9 @@
 		<input v-model="message">
 	</div>
 	<script>
+		function traduce(label){
+			return "Texto traducido: " + label;
+		}
 		var app = new Vue({
 			el: '#app',
 			data: {

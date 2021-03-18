@@ -1,0 +1,75 @@
+<!-- 
+	Ejemplo del artículo "Eventos en Jquery para los que conocen Javascript (tutorial parte 2)" 
+	(https://www.edeliagarcia.com/2017/04/23/eventos-en-jquery-para-los-que-conocen-javascript-tutorial-parte-2)
+	_____________________________________________________________________________________
+
+	Copyright 2017 Edelia García (www.edeliagarcia.com) 
+
+    This program is free software: you can redistribute it and/or modify it under the terms 
+	of the GNU General Public License as published by the Free Software Foundation, either 
+	version 3 of the License, or at your option) any later version.
+
+    This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; 
+	without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  
+	See the GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License along with this program.  
+	If not, see <http://www.gnu.org/licenses/>.
+-->
+<html lang="es">
+<head>
+<meta charset="UTF-8" /> <!--Ej06.03c-EventoTeclaPulsada.html-->
+<title>JavaScript</title>
+<script src="jquery-3.1.1.js" type="text/javascript"></script>
+<style type="text/css">
+#caja {
+	width:200px;
+	height:200px;
+	border:1px solid #903;
+}
+</style>
+<script type="text/javascript">
+
+function info_keydown(evento) {
+
+//alert("keyCode = "+evento.keyCode + ", charCode = "+evento.charCode+", tipo = "+evento.type);
+	var lista = {8: "backspace", 9: "tab", 37: "flecha izquierda", 38: "flecha arriba", 39: "flecha derecha", 40: "flecha abajo", 46: "delete"};
+	// si se oprime alguna de las teclas indicadas en la lista
+	if (lista[evento.keyCode]!==undefined) {
+
+		// muestra la tecla presionada
+		alert(lista[evento.keyCode]);
+	}
+}
+
+function info_keypress(evento) {
+//alert("keyCode = "+evento.keyCode + ", charCode = "+evento.charCode+", tipo = "+evento.type);
+
+	// si se oprime una tecla asociada a un caracter visible (su charCode igual a su keyCode)
+	if (evento.charCode==evento.keyCode ) {
+		
+		// obtiene el caracter y lo convierte a cadena
+		var caracter = evento.charCode;
+		var tecla = String.fromCharCode(caracter);
+		
+		// adiciona la cadena con el caracter en el elemento con identificador caja
+		$('#caja').append(tecla);
+	}
+}
+
+// cuando la página está lista
+$(document).ready(function () {
+	
+	// lo que ocurre cuando se lanzan los eventos keypress y keydown
+	$(document).keypress( info_keypress );
+	$(document).keydown( info_keydown );
+});
+
+</script>
+</head>
+<body>
+	Todo lo que escriba se adicionará más abajo...
+	<!-- caja donde se muestra todo lo que se teclee -->
+    <div id="caja"></div>
+</body> 
+</html>

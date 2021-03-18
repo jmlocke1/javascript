@@ -1,0 +1,82 @@
+<!-- 
+	Ejemplo del artículo "Jquery para los que conocen Javascript" (https://goo.gl/TTn09o)
+	_____________________________________________________________________________________
+
+	Copyright 2017 Edelia García (www.edeliagarcia.com) 
+
+    This program is free software: you can redistribute it and/or modify it under the terms 
+	of the GNU General Public License as published by the Free Software Foundation, either 
+	version 3 of the License, or at your option) any later version.
+
+    This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; 
+	without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  
+	See the GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License along with this program.  
+	If not, see <http://www.gnu.org/licenses/>.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>ejemplo navegación DOM 1</title>
+<script src="jquery-3.1.1.js" type="text/javascript"></script>
+<script type="text/javascript">
+//<![CDATA[
+
+$(document).ready( function () {
+
+	$( '#decorar1' ).click( function() {
+
+		$('p').each( function ( i ) { // recorre todos los elementos p y con cada uno realiza lo que se indica en la función
+		
+				if ( i%2==0 ) { // determina si el elemento está en una posición par o impar
+
+					$(this).css('background-color', '#eee'); 
+				} else {
+
+					$(this).css('background-color', '#ccc');
+				}
+			})
+
+	});
+
+	$( '#decorar2' ).click( function() {
+
+		$('p:even').css('background-color', '#eee'); // obtener todos los elemento p que estén en posiciones pares y cambiarles el color de fondo
+		$('p:odd').css('background-color', '#ccc'); // obtener todos los elemento p que estén en posiciones impares y cambiarles el color de fondo
+
+	});
+
+	$( '#decorar3' ).click( function() {
+
+		$('p').filter(':even').css('background-color', '#eee'); // obtener todos los elemento p que estén en posiciones pares y cambiarles el color de fondo
+		$('p').filter(':odd').css('background-color', '#ccc'); // obtener todos los elemento p que estén en posiciones impares y cambiarles el color de fondo
+
+	});
+	
+});
+
+//]]>
+</script>
+</head>
+
+<body>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam neque mauris, egestas sed sapien at, condimentum convallis turpis. Nulla bibendum efficitur metus dapibus sodales. Nullam vestibulum leo ac quam sollicitudin tincidunt quis quis mi. Donec non augue nulla. Mauris ut urna eu est aliquet euismod. </p>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam neque mauris, egestas sed sapien at, condimentum convallis turpis. Nulla bibendum efficitur metus dapibus sodales. Nullam vestibulum leo ac quam sollicitudin tincidunt quis quis mi. Donec non augue nulla. Mauris ut urna eu est aliquet euismod. </p>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam neque mauris, egestas sed sapien at, condimentum convallis turpis. Nulla bibendum efficitur metus dapibus sodales. Nullam vestibulum leo ac quam sollicitudin tincidunt quis quis mi. Donec non augue nulla. Mauris ut urna eu est aliquet euismod. </p>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam neque mauris, egestas sed sapien at, condimentum convallis turpis. Nulla bibendum efficitur metus dapibus sodales. Nullam vestibulum leo ac quam sollicitudin tincidunt quis quis mi. Donec non augue nulla. Mauris ut urna eu est aliquet euismod. </p>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam neque mauris, egestas sed sapien at, condimentum convallis turpis. Nulla bibendum efficitur metus dapibus sodales. Nullam vestibulum leo ac quam sollicitudin tincidunt quis quis mi. Donec non augue nulla. Mauris ut urna eu est aliquet euismod. </p>
+<input type="button" id="decorar1" value="Decorar (callback)"/>&nbsp;
+<input type="button" id="decorar2" value="Decorar (selector propio)"/>&nbsp;
+<input type="button" id="decorar3" value="Decorar (filtros)"/>
+<br>
+<label><input type="checkbox" id="cbox1" value="first_checkbox"> Este es mi primer checkbox</label><br>
+
+<input type="checkbox" id="cbox2" value="second_checkbox"> <label for="cbox2">Este es mi segundo checkbox</label><br>
+<label><input type="checkbox" id="cbox3" value="first_checkbox"> Este es mi primer checkbox</label><br>
+
+<input type="checkbox" id="cbox4" value="second_checkbox"> <label for="cbox2">Este es mi segundo checkbox</label>
+
+</body>
+</html>

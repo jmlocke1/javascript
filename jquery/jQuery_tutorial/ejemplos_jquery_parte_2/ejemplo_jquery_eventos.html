@@ -1,0 +1,117 @@
+<!-- 
+	Ejemplo del artículo "Eventos en Jquery para los que conocen Javascript (tutorial parte 2)" 
+	(https://www.edeliagarcia.com/2017/04/23/eventos-en-jquery-para-los-que-conocen-javascript-tutorial-parte-2)
+	_____________________________________________________________________________________
+
+	Copyright 2017 Edelia García (www.edeliagarcia.com) 
+
+    This program is free software: you can redistribute it and/or modify it under the terms 
+	of the GNU General Public License as published by the Free Software Foundation, either 
+	version 3 of the License, or at your option) any later version.
+
+    This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; 
+	without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  
+	See the GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License along with this program.  
+	If not, see <http://www.gnu.org/licenses/>.
+-->
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Muestra el atributo y la propiedad checked attribute de un checkbox cuando este cambia.</title>
+<script src="jquery-3.1.1.js" type="text/javascript"></script>
+<style>
+  .azul {
+	color: white;
+    background-color: blue;
+  }
+  .rojo {
+	color: #CCC;
+    background-color: red;
+  }
+  
+  #probar {
+	  background-color:#0FF;
+  }
+</style>
+<script>
+$(document).ready( function () {
+	$( 'input[name="probar"]' ).click( function() {
+										
+										// obtiene el elemento en el que se hace clic
+										var $boton = $(this);
+										// muestra el atributo value del elemento (con la etiqueta) y su color de fondo 
+										alert("Texto: " + $boton.attr("value") + ". Color de fondo: " + $boton.css("background-color"));
+									  });
+	$( 'input[name="propiedades"]' ).click( function() {
+										
+										// obtiene el botón con id propiedades
+										var $boton = $(':button[id="propiedades"]')
+										// modifica el estilo del botón
+										$boton.css('background-color', 'transparent');
+										$boton.css('font-weight', 'bold');
+										$boton.css('border', 'none');
+										$boton.css('text-decoration', 'underline');
+										$boton.css('cursor', 'pointer');
+									  });
+	$( 'input[name="cambiar"]' ).click( function() {
+										
+										// obtiene el elemento en el que se hace clic
+										var $boton = $(this);
+/*
+										// produce el mismo efecto que las dos líneas posteriores al comentario
+										if ($boton.hasClass("azul")) {
+											$boton.removeClass("azul");
+											$boton.addClass("rojo");
+										} else {
+											$boton.removeClass("rojo");
+											$boton.addClass("azul");
+										}
+*/
+										// si el elemento tiene la clase azul, se la quita; si no la tiene se la adiciona
+										$boton.toggleClass("azul");
+										// si el elemento tiene la clase rojo, se la quita; si no la tiene se la adiciona
+										$boton.toggleClass("rojo");
+									  });
+	$("a.intercambiar").click( function(evento){
+		
+		// obtiene todos los elementos a que sean de la clase intercambiar
+		var $enlace = $("a.intercambiar");
+		// obtiene los valores de sus atributos href y title
+		var viejoHref = $enlace.attr("href");
+		var viejoTitle = $enlace.attr("title");
+		
+		// intercambia los valores de los atributos href y title
+		if ($enlace.html()=="Blog Calidad y mejora continua") {
+			$enlace.attr("href", "http://www.google.com");
+			$enlace.attr("title", "Buscador Google");
+			$enlace.html("Google");
+		} else {
+			$enlace.attr("href", "https://edeliagarcia.com");
+			$enlace.attr("title", "Blog Calidad y mejora continua");
+			$enlace.html("Blog Calidad y mejora continua");
+		}
+		
+		// muestra los valores anteriores y los actuales
+		alert("Enlace anterior: " + viejoHref + ", título anterior: " + viejoTitle + "\n" +
+			  "Enlace nuevo: " + $enlace.attr("href") + ", título nuevo: " + $enlace.attr("title"));
+			  
+		// evita que se continue propagando el evento, así no se navega al sitio indicado en href
+		evento.preventDefault();
+	} );
+});
+</script>
+ 
+</head>
+<body>
+ 
+<input type="button" id="probar" name="probar" value="Mostrar color y valor"/>&nbsp;
+<input type="button" id="propiedades" name="propiedades" value="Cambiar propiedades css"/>&nbsp;
+<input type="button" id="cambiar" class="azul" name="cambiar" value="Cambiar clase"/>&nbsp;
+<a class="intercambiar" href="https://edeliagarcia.com" title="Blog Calidad y mejora continua">Blog Calidad y mejora continua</a>
+<p></p>
+ 
+</body>
+</html>
