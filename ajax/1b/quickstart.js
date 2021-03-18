@@ -8,6 +8,7 @@ function createXmlHttpRequestObject() {
 	if (window.ActiveXObject) {
 		try {
 			xmlHttp = new ActiveXObject("Microsoft.XMLHTTP");
+			console.log("Estamos en Internet Explorer");
 		}
 		catch (e) {
 			xmlHttp = false;
@@ -17,6 +18,7 @@ function createXmlHttpRequestObject() {
 	else {
 		try {
 			xmlHttp = new XMLHttpRequest();
+			console.log("Estamos en otro navegador");
 		}
 		catch (e) {
 			xmlHttp = false;
