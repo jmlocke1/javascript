@@ -27,11 +27,17 @@
 				{{ todo.text }}
 			</li>
 		</ol>
+		<ol>
+			<li v-for="la in lang">
+				{{lang_es[la]}}
+			</li>
+		</ol>
 	</div>
 	<div id="app-4-array">
+		<p>Intentando imprimir el array de lenguaje</p>
 		<ol>
 			<li v-for="(todo, key) in todos">
-				{{key}}: {{todo}}
+				{{key: todo}}
 			</li>
 		</ol>
 		<p v-bind:title='traduce("en los atributos")'>La traducción es: {{traduce("mundo")}}</p>
@@ -67,9 +73,9 @@
 				seen: true
 			}
 		});
-		console.log(lang_es);
+		console.log("Array normal",lang_es);
 		var lang_es_json = JSON.stringify(lang_es);
-		console.log(lang_es_json);
+		console.log("Array json",lang_es_json);
 		var app4 = new Vue({
 			el: '#app-4',
 			data: {
@@ -77,13 +83,14 @@
 					{ text: 'Learn JavaScript' },
 					{ text: 'Learn Vue' },
 					{ text: 'Build something awesome' }
-				]
+				],
+				lang: lang_es
 			}
 		});
 		var app4array = new Vue({
 			el: '#app-4-array',
 			data: {
-				todos: {lang_es_json}
+				todos: [lang_es]
 			}
 		});
 		var app5 = new Vue({
