@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cambiar el valor por defecto</title>
+    <script>
+        function cambiaDefecto(){ 
+            document.miFormulario.campo1.defaultValue = "Hola!!" 
+        }
+        function seleccionaFoco(){ 
+            document.miFormulario.campo1.focus() 
+            document.miFormulario.campo1.select() 
+        }
+    </script>
+</head>
+<body onload="seleccionaFoco()">
+    <form name="miFormulario" action="mailto:promocion@guiarte.com" enctype="text/plain"> 
+        <input type="Text" name="campo1" value="Texto de prueba" size="12"> 
+        <input type="Reset"> 
+        <br> 
+        <br> 
+        <input type="button" value="Cambia valor por defecto" onclick="cambiaDefecto()"> 
+    </form> 
+</body>
+</html>
