@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkbox con Javascript</title>
+    <script>
+        function alertaChecked(){ 
+            alert(document.miFormulario.miCheck.checked) 
+        } 
+        function alertaValue(){ 
+            alert(document.miFormulario.miCheck.value) 
+        } 
+        function metodoClick(){ 
+            document.miFormulario.miCheck.click() 
+        } 
+        function asignaValor(){
+            document.miFormulario.miCheck.value=document.miFormulario.valor.value;
+        }
+        function cuentaCheckboxes(){
+            var cont = 0, valorTotal = 0; 
+            let checkboxes = document.formCheckboxes.checkboxes;
+            for (var x=0; x < checkboxes.length; x++) {
+                if (checkboxes[x].checked) {
+                    cont = cont + 1;
+                    valorTotal += parseInt( checkboxes[x].value);
+                }
+            }
+            let plural = cont > 1 ? "n": "";
+            document.getElementById('cuenta').innerText = "Se ha"+plural+" pulsado " + cont + " checkbox. El valor de los checkboxes pulsados es " + valorTotal;
+        }
+    </script>
+</head>
+<body>
+    <form name="miFormulario" action="" enctype="text/plain">
+        <input type="checkbox" name="miCheck" > 
+        <input type="text" name="valor" id="valor">
+        <br> 
+        <br> 
+        <input type="button" value="informa de su propiedad checked" onclick="alertaChecked()"> 
+        <input type="button" value="informa de su propiedad value" onclick="alertaValue()"> 
+        <br> 
+        <br> 
+        <input type="button" value="Simula un click" onclick="metodoClick()">
+        <input type="button" value="Asigna al checked el valor del textbox" onclick="asignaValor()">
+    </form> 
+    <form action="" name="formCheckboxes">
+        <input type="checkbox" name="checkboxes" value="1"> Checkbox 1
+        <input type="checkbox" name="checkboxes" value="2"> Checkbox 2
+        <input type="button" value="Cuenta checkboxes" onclick="cuentaCheckboxes()">
+    </form>
+    <div id="cuenta"></div>
+</body>
+</html>
