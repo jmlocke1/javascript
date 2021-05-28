@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Botones radio en formularios</title>
+    <script>
+        function cambiaColor(){ 
+            var i 
+            for (i=0;i<document.fcolores.colorin.length;i++){ 
+                if (document.fcolores.colorin[i].checked) 
+                    break; 
+            } 
+            //document.style.backgroundColor = document.fcolores.colorin[i].value 
+            let elemento = document.getElementById("colorear");
+            document.getElementById('colorear').style.backgroundColor = document.fcolores.colorin[i].value;
+            //elemento.style.backgroundColor = document.fcolores.colorin[i].value;
+            elemento.innerText = "Índice del elemento "+i + elemento.innerText+ " Valor del color = "+document.fcolores.colorin[i].value;
+        }
+    </script>
+</head>
+<body>
+    <h1 id="colorear">Encabezado a colorear</h1>
+    <form name=fcolores>
+        <input type="Radio" name="colorin" value="#ffffff" checked> Blanco 
+        <br> 
+        <input type="Radio" name="colorin" value="#ff0000"> Rojo 
+        <br> 
+        <input type="Radio" name="colorin" value="#00ff00"> Verde 
+        <br> 
+        <input type="Radio" name="colorin" value="#0000ff"> Azul 
+        <br> 
+        <input type="Radio" name="colorin" value="#ffff00"> Amarillo 
+        <br> 
+        <input type="Radio" name="colorin" value="#00ff00"> Turquesa 
+        <br> 
+        <input type="Radio" name="colorin" value="#ff00ff"> Morado 
+        <br> 
+        <input type="Radio" name="colorin" value="#000000"> Negro 
+        <br> 
+        <br> 
+        <input type="Button" name="" value="Cambia Color" onclick="cambiaColor()">
+    </form>
+</body>
+</html>
