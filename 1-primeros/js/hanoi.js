@@ -16,5 +16,5 @@ function move(n, orgPeg, destPeg, otherPeg){
 	}
 }
 
-let pasos = move (10, "A", "B", "C");
+let pasos = move (20, "A", "B", "C");
 document.write("Se han utilizado ", pasos, " pasos para completarlo");
