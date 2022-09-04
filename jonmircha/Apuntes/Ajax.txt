@@ -8,4 +8,4 @@ READY_STATE_LOADED 			2
 READY_STATE_INTERACTIVE 	3
 READY_STATE_COMPLETE 		4
 
-Me he quedado en el video: https://www.youtube.com/watch?v=dYB1UlGGmfk&list=PLvq-jIkSeTUZ6QgYYO3MwG9EMqC-KoLXA&index=108
+Me he quedado en el video: https://www.youtube.com/watch?v=wzoUu6rcQ4c&list=PLvq-jIkSeTUZ6QgYYO3MwG9EMqC-KoLXA&index=112
