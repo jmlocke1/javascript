@@ -26,9 +26,9 @@
       "constelacion": "Fénix"
     },
     {
-      "nombre": "Sagasón",
-      "constelacion": "Géminis",
-      "id": 6
+      "id": 6,
+      "nombre": "Saga",
+      "constelacion": "Géminis"
     }
   ],
   "dioses": [
