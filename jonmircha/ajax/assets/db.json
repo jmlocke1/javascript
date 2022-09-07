@@ -26,9 +26,29 @@
       "constelacion": "Fénix"
     },
     {
-      "id": 6,
       "nombre": "Saga",
-      "constelacion": "Géminis"
+      "constelacion": "Géminis",
+      "id": 6
+    },
+    {
+      "nombre": "Mü",
+      "constelacion": "Aries",
+      "id": 7
+    },
+    {
+      "nombre": "Aldebaran",
+      "constelacion": "Tauro",
+      "id": 8
+    },
+    {
+      "nombre": "Sensei",
+      "constelacion": "Aldebaran",
+      "id": 10
+    },
+    {
+      "nombre": "Aiolia",
+      "constelacion": "Leo",
+      "id": 11
     }
   ],
   "dioses": [
