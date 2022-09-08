@@ -75,7 +75,7 @@ function getAll() {
 		},
 		error: (err) => {
 			console.log(err);
-			$table.insertAdjacentHTML("afterend", `<p><b>${err}</b></p>`)
+			$table.insertAdjacentHTML("afterend", `<p><b>${err}</b></p>`);
 		}
 	});
 }

@@ -11,4 +11,4 @@ READY_STATE_COMPLETE 		4
 Para tener una api falsa para probar los verbos http, hay que instalar json-server: https://github.com/typicode/json-server
 
 
-Me he quedado en el video: https://www.youtube.com/watch?v=FGBm1fjNMhI&list=PLvq-jIkSeTUZ6QgYYO3MwG9EMqC-KoLXA&index=116
+Me he quedado en el video: https://www.youtube.com/watch?v=0LMThcUx__0&list=PLvq-jIkSeTUZ6QgYYO3MwG9EMqC-KoLXA&index=119
