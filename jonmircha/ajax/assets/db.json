@@ -46,9 +46,24 @@
       "id": 10
     },
     {
-      "nombre": "Aiolia",
+      "nombre": "Aioria",
       "constelacion": "Leo",
       "id": 11
+    },
+    {
+      "nombre": "Máscara de Muerte",
+      "constelacion": "Cáncer",
+      "id": 12
+    },
+    {
+      "nombre": "Shaka",
+      "constelacion": "Virgo",
+      "id": 13
+    },
+    {
+      "nombre": "Dohko",
+      "constelacion": "Libras",
+      "id": 14
     }
   ],
   "dioses": [
