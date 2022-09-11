@@ -19,4 +19,5 @@ var textoHora = `
 `;
 var a= moment('2016-01-01');
 console.log(textoHora);
-console.log(Math.random()*10000));
+console.log(Math.random()*10000);
+document.querySelector("#fechas").innerText = textoHora;

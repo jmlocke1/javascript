@@ -26,7 +26,6 @@ var nuevoColor = "green";
 window.addEventListener('load', () =>{
     var boton = document.querySelector("#boton");
     var colorOriginal = boton.style.backgroundColor;
-    
 
     var input = document.querySelector("#campo_nombre");
 
@@ -54,7 +53,12 @@ window.addEventListener('load', () =>{
     });
     // Keypress
     input.addEventListener('keypress', function(event){
-        console.log("Tecla presionada ",String.fromCharCode(event.keyCode));
+        let tecla = String.fromCharCode(event.keyCode);
+        console.log("Tecla presionada ", tecla);
+        console.log(tecla.match(/[a-z]/));
+        if(tecla.match(/[a-z]/)){
+            console.log("La tecla pulsada es minúscula");
+        }
     });
     // Keyup
     input.addEventListener('keyup', function(event){

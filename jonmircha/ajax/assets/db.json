@@ -64,6 +64,11 @@
       "nombre": "Dohko",
       "constelacion": "Libras",
       "id": 14
+    },
+    {
+      "nombre": "Mahalo",
+      "constelacion": "Hawai",
+      "id": 15
     }
   ],
   "dioses": [

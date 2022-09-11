@@ -4,6 +4,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>CRUD API REST AXIOS</title>
+	<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </head>
 <body>
 	<h1>CRUD Api Rest AXIOS</h1>
@@ -17,7 +18,7 @@
 				<input type="text" name="constelacion" placeholder="Constelación">
 				<br>
 				<input type="submit" value="Enviar">
-				<input type="hidden" name="action">
+				<input type="hidden" name="id">
 			</form>
 		</article>
 		<article>
@@ -44,13 +45,6 @@
 				</td>
 			</tr>
 	</template>
-	<script>
-		const d = document,
-			$table = d.querySelector(".crud-table"),
-			$form = d.querySelector(".crud-form"),
-			$title = d.querySelector(".crud-title"),
-			$template = d.querySelector("#crud-template").content,
-			$fragment = d.createDocumentFragment();
-	</script>
+	<script src="js/crud-axios.js"></script>
 </body>
 </html>
