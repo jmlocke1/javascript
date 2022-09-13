@@ -23,7 +23,6 @@ const getAll = async () => {
 	try {
 		let res = await fetch("http://localhost:5000/santos"),
 			json = await res.json();
-
 		if(!res.ok) throw { status: res.status, statusText: res.statusText };
 
 		json.forEach( el => {
