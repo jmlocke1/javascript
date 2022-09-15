@@ -4,7 +4,7 @@ mb_internal_encoding ('UTF-8');
 
 /* CREAMOS LA CONEXION A LA BASE DE DATOS, O BIEN LA IMPORTAMOS 
 DESDE UN ARCHIVO EXTERNO DE CONFIGURACION. */
-$conexion = new PDO('mysql:host=localhost;dbname=datatables;charset=UTF8', 'root', 'root');
+$conexion = new PDO('mysql:host=localhost;dbname=datatables;charset=UTF8', 'usprueba', 'usprueba');
 $conexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 /* RECUPERAMOS TODOS LOS PARAMETROS DE $_GET. LOS QUE NO APAREZCAN EN LA CONSULTA 
