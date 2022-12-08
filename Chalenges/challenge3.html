@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Challenge 3</title>
+</head>
+<body>
+	<script>
+		
+		function distributeGifts(packOfGifts, reindeers) {
+			let maximumWeightAllowed = 0,
+				weightOfGifts = 0,
+				numberOfGifts = 0;
+			reindeers.forEach(reindeer => {
+				maximumWeightAllowed += reindeer.length * 2;
+			});
+			packOfGifts.forEach(gift => {
+				weightOfGifts += gift.length;
+			});
+			return  parseInt(maximumWeightAllowed / weightOfGifts);
+		}
+		const packOfGifts = ["book", "doll", "ball"];
+		const reindeers = ["dasher", "dancer"];
+		console.log("Se pueden llevar ", distributeGifts(packOfGifts, reindeers), " regalos");
+	</script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Challenge 1</title>
+</head>
+<body>
+	<script>
+		function wrapping(gifts) {
+			const wrapped = [];
+			for(let i = 0; i < gifts.length; i++){
+				let gift=gifts[i];
+				let wrap = "";
+				for(let j = 0, limit = gift.length + 2; j < limit; j++){
+				wrap += "*";
+				}
+				wrapped[i] = `${wrap}\n*${gift}*\n${wrap}`;
+			}
+			return wrapped;
+		}
+		const gifts = ['cat', 'game', 'socks'];
+		const wrapped = wrapping(gifts);
+		wrapped.forEach(gitwrap => {
+			console.log(gitwrap);
+		});
+	</script>
+</body>
+</html>
