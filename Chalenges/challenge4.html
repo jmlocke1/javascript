@@ -52,22 +52,37 @@
 	</ul>
 <script>
 function fitsInOneBox(boxes) {
-	let temp = [];
-	for(let i = 0; i < boxes.length -1; i++){
-
-	}
-  	return false
+	let temp = [], b1 = [], b2 = [], ordenados = 0;
+	do{
+		ordenados = 0;
+		for(let i = 0; i < boxes.length -1; i++){
+			b1 = boxes[i];
+			b2 = boxes[i + 1];
+			if(b1.l < b2.l && b1.w < b2.w && b1.h < b2.h){
+				continue;
+			}else if(b1.l > b2.l && b1.w > b2.w && b1.h > b2.h){
+				boxes[i] = b2;
+				boxes[i+1] = b1;
+				ordenados++;
+			}else{
+				return false;
+			}
+		}
+	}while(ordenados > 0);
+  	return true;
 }
 
 const boxes = [
-  { l: 1, w: 1, h: 1 },
-  { l: 3, w: 3, h: 3 },
-  { l: 2, w: 2, h: 2 }
+	{ l: 3, w: 1, h: 3 },
+	{ l: 1, w: 1, h: 1 },
+	{ l: 2, w: 2, h: 2 }	
 ];
-if(boxes[0] < boxes[1]){
-	console.log("Es menor");
+if(fitsInOneBox(boxes)){
+	console.log(boxes);
+	console.log("Caben todas las cajas");
 }else{
-	console.log("No lo sé");
+	console.log(boxes);
+	console.log("No caben");
 }
 </script>
 </body>
