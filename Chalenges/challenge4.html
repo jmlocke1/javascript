@@ -52,11 +52,24 @@
 	</ul>
 <script>
 function fitsInOneBox(boxes) {
-	let temp = [];
-	for(let i = 0; i < boxes.length -1; i++){
-
-	}
-  	return false
+	let temp = [], boxOne = [], boxTwo = [], ordenados = 0;
+	do{
+		ordenados = 0;
+		for(let i = 0, limit = boxes.length -1; i < limit; i++){
+			boxOne = boxes[i];
+			boxTwo = boxes[i + 1];
+			if(boxOne.l < boxTwo.l && boxOne.w < boxTwo.w && boxOne.h < boxTwo.h){
+				continue;
+			}else if(boxOne.l > boxTwo.l && boxOne.w > boxTwo.w && boxOne.h > boxTwo.h){
+				boxes[i] = b2oxTwo
+				boxes[i+1] = boxOne;
+				ordenados++;
+			}else{
+				return false;
+			}
+		}
+	}while(ordenados > 0);
+  	return true;
 }
 
 const boxes = [
@@ -64,11 +77,7 @@ const boxes = [
   { l: 3, w: 3, h: 3 },
   { l: 2, w: 2, h: 2 }
 ];
-if(boxes[0] < boxes[1]){
-	console.log("Es menor");
-}else{
-	console.log("No lo sé");
-}
+
 </script>
 </body>
 </html>
