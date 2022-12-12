@@ -6,17 +6,37 @@
 	<title>Challenge 2</title>
 </head>
 <body>
+	<h1>Reto 2: Nadie quiere hacer horas extra</h1>
+
+	<p>Un millonario ha comprado una red social y no trae buenas noticias. Ha anunciado que <strong>cada vez que una jornada de trabajo se pierde por un día festivo</strong>, habrá que compensarlo con <strong>dos horas extra otro día de ese mismo año</strong>.</p>
+	<p>Obviamente, <a href=""></a> la gente que trabaja en la empresa no le ha hecho ni pizca de gracia y están <strong>preparando un programa que les diga el número de horas extras que harían</strong> en el año si se aplicara la nueva norma.</p>
+	<p>Al ser trabajo de oficina, su horario laboral es <strong>de lunes a viernes</strong>. Así que sólo tienes que preocuparte de los días festivos que caen en esos días.</p>
+	<p>Dado un año y un array con las fechas de los días festivos, devuelve el número de horas extra que se harían ese año:</p>
+	<pre><code class="javascript language-javascript shj-lang-js shj-inline" data-lang="js"><span class="shj-syn-kwd">const</span> year <span class="shj-syn-oper">=</span> <span class="shj-syn-num">2022</span>
+	<span class="shj-syn-kwd">const</span> holidays <span class="shj-syn-oper">=</span> [<span class="shj-syn-str">'01/06'</span><span class="shj-syn-oper">,</span> <span class="shj-syn-str">'04/01'</span><span class="shj-syn-oper">,</span> <span class="shj-syn-str">'12/25'</span>] <span class="shj-syn-cmnt">// formato MM/DD
+	</span>
+	<span class="shj-syn-cmnt">// 01/06 es el 6 de enero, jueves. Cuenta.
+	</span><span class="shj-syn-cmnt">// 04/01 es el 1 de abril, un viernes. Cuenta.
+	</span><span class="shj-syn-cmnt">// 12/25 es el 25 de diciembre, un domingo. No cuenta.
+	</span>
+	<span class="shj-syn-func">countHours</span>(year<span class="shj-syn-oper">,</span> holidays) <span class="shj-syn-cmnt">// 2 días -&gt; 4 horas extra en el año
+	</span></code></pre>
+	<p>Cosas a tener en cuenta y consejos:</p>
+	<ul>
+		<li>El año puede ser bisiesto. Haz las comprobaciones que necesitas para ello, si fuese necesario.</li>
+		<li>Aunque el 31 de diciembre sea festivo, las horas extra se harán el mismo año y no el siguiente.</li>
+		<li>El método <code>Date.getDay()</code> te devuelve el día de la semana de una fecha. El 0 es domingo, el 1 es lunes, etc.</li>
 	<script>
-		function countHours(year, holidays) {
-			let hours = 0;
-			holidays.forEach(dm => {
-				let day = new Date(`${year}/${dm}`);
-				if(day.getDay() > 0 && day.getDay() < 6){
-					hours += 2;
-				}
-			});
-			return hours;
+function countHours(year, holidays) {
+	let hours = 0;
+	holidays.forEach(dm => {
+		let day = new Date(`${year}/${dm}`);
+		if(day.getDay() > 0 && day.getDay() < 6){
+			hours += 2;
 		}
+	});
+	return hours;
+}
 		const year = 2022;
 		const holidays = ['01/06', '04/01', '12/25', '12/08'];
 		let horasExtras = countHours(year, holidays);
